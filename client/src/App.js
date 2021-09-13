@@ -1,13 +1,17 @@
-// import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-    <h3>Real Time Chat-App</h3>
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-    </div>
-  );
+import Join from './components/Join'
+import Chat from './components/Chat';
+
+const App = () => {
+    return (
+        <Router>
+            <Route path="/" exact component={Join} />
+            <Route path="/chat" component={Chat} />
+        </Router>
+    )
 }
 
 export default App;
