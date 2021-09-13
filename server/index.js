@@ -10,6 +10,15 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+io.on('connection', (socket) =>{
+    console.log('We have a connection!');
+    
+    socket.on('disconnect', () => {
+        console.log('User had left!');
+    })
+})
+
+
 app.use(router);
 
 server.listen(PORT, ()=>{
