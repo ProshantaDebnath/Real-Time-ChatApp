@@ -17,7 +17,7 @@ const Chat = ({ location }) => {
         console.log(location.search)
         
 
-        socket = io(ENDPOINT);
+        socket = io(ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']} );
         setName(name); 
         setRoom(room);
 
