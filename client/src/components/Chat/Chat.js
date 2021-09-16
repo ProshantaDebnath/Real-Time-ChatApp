@@ -15,16 +15,17 @@ const Chat = ({ location }) => {
         const { name, room } = queryString.parse(location.search);
         console.log(room, name)
         console.log(location.search)
-        
 
-        socket = io(ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']} );
-        setName(name); 
+
+        socket = io(ENDPOINT, { transports: ['websocket', 'polling', 'flashsocket'] });
+        setName(name);
         setRoom(room);
 
-        socket.emit('join', { name, room });
-        console.log(socket)
+        console.log(socket);
 
-    }, [ ENDPOINT, location.search ] )
+        socket.emit('join', { name, room });
+
+    }, [ENDPOINT, location.search])
     return (
         <h1>Chat</h1>
     )
